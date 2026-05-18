@@ -90,7 +90,11 @@ http://172.16.11.22/js/main.js  ← 이 파일이 핵심!
 ```javascript
 // main.js 내부에서 아래와 같은 코드 발견
 CryptoJS.AES.decrypt(...)
+
 ```
+
+<img width="1195" height="840" alt="Image" src="https://github.com/user-attachments/assets/5a097507-ef4c-4435-a1a9-e4eb72eaaace" />
+
 
 - **AES 복호화 키(Passphrase)**: `SecretPasspharseMomentum`
 - 브라우저 **개발자 도구 → Application → Storage(Cookies)** 에서 **암호화된 쿠키값** 확인
@@ -98,8 +102,6 @@ CryptoJS.AES.decrypt(...)
 ---
 
 ## 6. AES 복호화로 쿠키값 분석
-
-<img width="1195" height="840" alt="Image" src="https://github.com/user-attachments/assets/5a097507-ef4c-4435-a1a9-e4eb72eaaace" />
 
 
 온라인 AES 복호화 사이트 이용:
@@ -111,7 +113,6 @@ CryptoJS.AES.decrypt(...)
 Passphrase  : SecretPasspharseMomentum
 ```
 
-<img width="1190" height="861" alt="Image" src="https://github.com/user-attachments/assets/f2fa7446-8653-45e1-8e92-a3762a6746f9" />
 
 복호화 결과 → **SSH 비밀번호** 획득 (이미지 파일명 형태로 나옴)
 
