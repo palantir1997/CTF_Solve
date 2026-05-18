@@ -1,5 +1,7 @@
 # 🚀 Momentum 1 - VulnHub CTF 풀이
 
+<img width="349" height="479" alt="Image" src="https://github.com/user-attachments/assets/e1ae136e-6a4b-410e-bb2c-485e10255aed" />
+
 > **난이도**: Easy  
 > **출처**: https://www.vulnhub.com/entry/momentum-1,685/  
 > **목표**: user.txt & root.txt 플래그 획득
