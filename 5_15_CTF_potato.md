@@ -5,6 +5,7 @@
 > **Platform:** VulnHub  
 > **Goal:** user.txt + root.txt 획득  
 > **핵심 기술:** FTP Anonymous Login, PHP Type Juggling, LFI, Hash Crack, Sudo Path Traversal
+> 왼쪽 감자로 진행!
 
 ---
 
