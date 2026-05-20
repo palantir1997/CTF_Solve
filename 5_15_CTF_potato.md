@@ -1,5 +1,7 @@
 # 🥔 Potato: 1 — CTF Writeup
 
+<img width="669" height="481" alt="Image" src="https://github.com/user-attachments/assets/8da61b06-2ed5-410b-bcb8-85cd76f53a09" />
+
 > **Platform:** VulnHub  
 > **Goal:** user.txt + root.txt 획득  
 > **핵심 기술:** FTP Anonymous Login, PHP Type Juggling, LFI, Hash Crack, Sudo Path Traversal
@@ -24,6 +26,8 @@ nmap -sn 172.16.11.0/24
 nmap -sV -sC -p- 172.16.11.221
 ```
 
+<img width="1138" height="526" alt="Image" src="https://github.com/user-attachments/assets/1203e414-c2f5-4ae4-8b24-d20696bac286" />
+
 > `-sV` 버전 탐지 / `-sC` 기본 스크립트 실행 / `-p-` 전체 포트 스캔
 
 | 포트 | 서비스 | 비고 |
@@ -34,6 +38,8 @@ nmap -sV -sC -p- 172.16.11.221
 
 > ⚠️ 2112번 FTP는 `-p-` 전체 스캔 없이는 발견 불가!
 
+<img width="1167" height="397" alt="Image" src="https://github.com/user-attachments/assets/1b3f45dc-59bf-4e74-8db3-7e8bbbdb407e" />
+
 ---
 
 ## 🕷️ 3단계: 웹 디렉토리 열거
@@ -43,10 +49,14 @@ gobuster dir -u http://172.16.11.221 \
   -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 ```
 
+<img width="1139" height="473" alt="Image" src="https://github.com/user-attachments/assets/5691776a-9cfd-4cc8-8c24-38216e12dc0d" />
+
 > 발견된 경로:
 > - `/admin` (301) → 로그인 페이지 존재
 > - `/potato` (301)
 > - `/server-status` (403)
+
+<img width="878" height="571" alt="Image" src="https://github.com/user-attachments/assets/f058f5f8-769b-4f42-98f2-26102a5b79e1" />
 
 ---
 
@@ -66,6 +76,9 @@ sudo nmap -vv --script=ssh-brute.nse -p 22 172.16.11.221
 ```bash
 ftp 172.16.11.221 2112
 ```
+
+<img width="1142" height="622" alt="Image" src="https://github.com/user-attachments/assets/75890bba-872c-4ff7-a271-5a1f1cc89377" />
+
 
 ```
 Name: anonymous
