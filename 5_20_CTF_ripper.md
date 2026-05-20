@@ -228,7 +228,7 @@ cat flag.txt
 > 🎊 **루트 플래그 획득 완료!**
 
 
-<img width="384" height="492" alt="Image" src="https://github.com/user-attachments/assets/a68f6ad1-8be5-4657-a9f0-e69aeaddf731" />
+<img width="1160" height="923" alt="Image" src="https://github.com/user-attachments/assets/d20613fb-10f1-470b-b769-68574970435b" />
 
 
 ## 🗺️ 공격 흐름 요약
