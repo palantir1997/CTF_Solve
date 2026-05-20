@@ -1,5 +1,8 @@
 # 🗡️ Ripper: 1 — CTF Writeup
 
+<img width="384" height="492" alt="Image" src="https://github.com/user-attachments/assets/a68f6ad1-8be5-4657-a9f0-e69aeaddf731" />
+
+
 > **Platform:** VulnHub | **URL:** https://www.vulnhub.com/entry/ripper-1,706/  
 > **Difficulty:** Intermediate | **Goal:** `/root/flag.txt` 획득
 
@@ -10,6 +13,8 @@
 ```bash
 nmap -sn 172.16.11.0/24
 ```
+
+<img width="817" height="330" alt="Image" src="https://github.com/user-attachments/assets/13f0d3d0-246b-4445-9ef0-0b02ecee97f5" />
 
 > 네트워크 대역에서 살아있는 호스트를 핑 스캔으로 탐색.  
 > → 타겟 IP: `172.16.11.227` 발견
@@ -24,6 +29,8 @@ nmap -p- -sV 172.16.11.227
 
 > 전체 포트(0~65535) 대상으로 서비스 버전 스캔.  
 > → 포트 **80** (HTTP), **22** (SSH), **10000** (Webmin) 등 확인
+
+<img width="912" height="825" alt="Image" src="https://github.com/user-attachments/assets/505abee8-18db-450f-bed0-734cd290268b" />
 
 ---
 
@@ -56,6 +63,9 @@ https://ripper-min:10000
 ```
 
 > `/etc/hosts`에 도메인을 등록해 가상 호스트 기반 라우팅 우회.
+
+
+<img width="914" height="827" alt="Image" src="https://github.com/user-attachments/assets/dd2c5945-9f4a-4497-9eb7-67dc34f216a9" />
 
 ---
 
