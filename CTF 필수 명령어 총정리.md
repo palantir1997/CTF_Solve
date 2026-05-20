@@ -36,6 +36,10 @@ dirb http://target.com
 # FUZZ 자리에 wordlist 단어를 하나씩 넣어서 파라미터명을 브루트포스
 ffuf -u "http://target.com/index.php?FUZZ=../../../../etc/passwd" \
   -w /usr/share/wordlists/dirb/common.txt -fs 0
+
+# robots.txt (항상해보기)
+curl http://target.com/robots.txt
+
 ```
 
 > 💡 `-fs 0` : 응답 크기가 0바이트인 결과 필터링 (빈 응답 제거)
