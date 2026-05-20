@@ -43,7 +43,6 @@ sudo vi /etc/hosts
 
 > 브라우저/도구가 `dc-2` 도메인을 IP로 해석할 수 있게 로컬 DNS 역할 수행
 
-<img width="889" height="426" alt="Image" src="https://github.com/user-attachments/assets/bdf7f37d-df00-4504-88cd-693d783b2a2b" />
 
 <img width="1148" height="768" alt="Image" src="https://github.com/user-attachments/assets/a2b74b17-d3b2-4a50-bf40-3a35de7ad920" />
 
@@ -54,6 +53,9 @@ sudo vi /etc/hosts
 ```bash
 nmap -p80 --script http-wordpress-users -Pn 172.16.11.228
 ```
+
+<img width="889" height="426" alt="Image" src="https://github.com/user-attachments/assets/bdf7f37d-df00-4504-88cd-693d783b2a2b" />
+
 > Nmap 스크립트로 WordPress 등록 사용자 목록 추출
 
 ```bash
