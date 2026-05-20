@@ -117,6 +117,9 @@ vi
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export SHELL=/bin/bash
 
+# su 들어가서
+sudo -l
+
 # python으로 기본 bash 업그레이드
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 python -c 'import pty; pty.spawn("/bin/bash")'
