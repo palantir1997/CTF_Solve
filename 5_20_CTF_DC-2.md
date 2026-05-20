@@ -46,6 +46,8 @@ sudo vi /etc/hosts
 
 <img width="1148" height="768" alt="Image" src="https://github.com/user-attachments/assets/a2b74b17-d3b2-4a50-bf40-3a35de7ad920" />
 
+<img width="927" height="795" alt="Image" src="https://github.com/user-attachments/assets/904a6410-d8c7-499c-800e-461958402035" />
+
 ---
 
 ## 👤 3단계: WordPress 사용자 열거
@@ -97,8 +99,6 @@ wpscan --url http://dc-2/ -U user.txt -P wordlist.txt --password-attack wp-login
 > `--password-attack wp-login` WordPress 로그인 폼으로 공격
 
 > → **jerry** 계정 크리덴셜 획득 성공
-
-<img width="927" height="795" alt="Image" src="https://github.com/user-attachments/assets/904a6410-d8c7-499c-800e-461958402035" />
 
 
 ---
