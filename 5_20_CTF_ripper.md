@@ -181,6 +181,8 @@ find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
 
 <img width="809" height="140" alt="Image" src="https://github.com/user-attachments/assets/c776fcfb-c010-4f54-8c40-a445c0caf4b9" />
 
+> cubes / I100tpeople ssh접속
+
 ---
 
 ## 🔎 10단계: cubes 소유 파일 전체 탐색
@@ -189,6 +191,7 @@ find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
 find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
 ```
 
+<img width="801" height="456" alt="Image" src="https://github.com/user-attachments/assets/cb58297a-14a4-4960-9d0f-3d037013fcde" />
 
 > **목적:** 서버 전체에서 `cubes`가 소유한 파일을 샅샅이 탐색.  
 > 홈 디렉토리 외 숨겨진 파일에서 크리덴셜 힌트를 낚는 것이 목표.  
@@ -198,6 +201,8 @@ find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
 ```bash
 cat /var/webmin/backup/miniser.log
 ```
+
+<img width="945" height="463" alt="Image" src="https://github.com/user-attachments/assets/0077f970-51a8-42c2-850e-aa3313ca919f" />
 
 > → 크리덴셜 발견: `admin / tokiohotel`
 
