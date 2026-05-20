@@ -90,6 +90,9 @@ sudo gobuster dir \
 https://ripper-min:10000/robots.txt
 ```
 
+
+<img width="905" height="795" alt="Image" src="https://github.com/user-attachments/assets/30ea843a-9c1b-4c78-83ea-b2ef4f7b6edf" />
+
 robots.txt에서 발견한 Base64 문자열 디코딩:
 
 ```bash
@@ -100,6 +103,11 @@ echo d2Ugc2NhbiBwaHAgY29kZXMgd2l0aCByaXBzCg== | base64 -d
 ```
 we scan php codes with rips
 ```
+
+
+<img width="905" height="645" alt="Image" src="https://github.com/user-attachments/assets/fc1f1558-f97e-47a5-862e-8837c816cf10" />
+
+<img width="909" height="827" alt="Image" src="https://github.com/user-attachments/assets/67cad39c-e003-4ba8-8096-6891d8a35b5e" />
 
 > 🔑 **핵심 힌트:** `rips` — PHP 소스코드 분석 도구  
 > → 80번 포트로 `http://ripper-min/rips` 접속
@@ -114,14 +122,22 @@ we scan php codes with rips
 http://ripper-min/rips
 ```
 
+<img width="917" height="867" alt="Image" src="https://github.com/user-attachments/assets/a9887efa-a874-4ee2-97e7-8b89a5ab609b" />
+
+
 분석 경로 입력:
 
 ```
 /var/www/html/rips
 ```
 
+
+<img width="1163" height="929" alt="Image" src="https://github.com/user-attachments/assets/2047d8be-fcf8-4733-aafa-b9930dd984a0" />
+
 > RIPS가 PHP 소스코드를 정적 분석해 취약점 및 숨겨진 파일 노출.  
 > → `secret.php` 발견 → **아이디/비밀번호** 획득
+
+<img width="1168" height="926" alt="Image" src="https://github.com/user-attachments/assets/f8c30976-9d69-4caf-9e25-43e9d06373ac" />
 
 ---
 
