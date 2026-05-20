@@ -156,9 +156,6 @@ ssh ripper@172.16.11.227
 cat flag.txt
 ```
 
-
-<img width="532" height="92" alt="Image" src="https://github.com/user-attachments/assets/7675d718-b7d5-4238-aab7-02345d0f7c1b" />
-
 > 🎉 첫 번째 플래그 획득!
 
 ---
@@ -169,9 +166,20 @@ cat flag.txt
 cat /etc/passwd | grep bash
 ```
 
+<img width="532" height="92" alt="Image" src="https://github.com/user-attachments/assets/7675d718-b7d5-4238-aab7-02345d0f7c1b" />
+
 > **목적:** bash 쉘을 가진 실제 로그인 가능 사용자만 필터링.  
 > ripper 계정으론 `/root`에 접근 불가 → 권한 상승을 위한 다른 계정 탐색.  
 > → `cubes` 계정 발견
+
+
+```bash
+find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
+```
+
+<img width="800" height="186" alt="Image" src="https://github.com/user-attachments/assets/855cdbb1-e1ec-4ae6-b6ef-ba6c43a809a6" />
+
+<img width="809" height="140" alt="Image" src="https://github.com/user-attachments/assets/c776fcfb-c010-4f54-8c40-a445c0caf4b9" />
 
 ---
 
@@ -180,6 +188,7 @@ cat /etc/passwd | grep bash
 ```bash
 find / -user cubes -type f -exec ls -al {} \; 2>/dev/null
 ```
+
 
 > **목적:** 서버 전체에서 `cubes`가 소유한 파일을 샅샅이 탐색.  
 > 홈 디렉토리 외 숨겨진 파일에서 크리덴셜 힌트를 낚는 것이 목표.  
