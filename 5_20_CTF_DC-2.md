@@ -151,6 +151,24 @@ vi 편집기 내부에서:
 > rbash가 외부 명령을 막아도 **vi 안에서 쉘을 실행하면 rbash를 우회** 가능
 > `:set shell=` 로 실행할 쉘 지정 → `:shell` 로 해당 쉘 실행
 
+```
+tom으로 SSH 접속
+      ↓
+rbash (restricted bash) 상태
+→ cd, ls, export 등 대부분 명령어 차단
+→ PATH도 제한되어 있음
+      ↓
+vi 실행
+→ vi는 rbash가 허용한 명령어
+→ vi 내부는 rbash의 통제 밖
+      ↓
+:set shell=/bin/sh
+:shell
+→ vi가 /bin/sh를 새로 실행
+→ 이 sh는 rbash가 아닌 일반 sh
+→ 제한 풀림!
+```
+
 <img width="864" height="89" alt="Image" src="https://github.com/user-attachments/assets/0a1bab4a-9b72-40e3-ae1f-ece43f5b037b" />
 
 
