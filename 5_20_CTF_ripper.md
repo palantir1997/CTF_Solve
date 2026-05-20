@@ -134,10 +134,12 @@ http://ripper-min/rips
 
 <img width="1163" height="929" alt="Image" src="https://github.com/user-attachments/assets/2047d8be-fcf8-4733-aafa-b9930dd984a0" />
 
+<img width="1168" height="926" alt="Image" src="https://github.com/user-attachments/assets/f8c30976-9d69-4caf-9e25-43e9d06373ac" />
+
 > RIPS가 PHP 소스코드를 정적 분석해 취약점 및 숨겨진 파일 노출.  
 > → `secret.php` 발견 → **아이디/비밀번호** 획득
 
-<img width="1168" height="926" alt="Image" src="https://github.com/user-attachments/assets/f8c30976-9d69-4caf-9e25-43e9d06373ac" />
+<img width="650" height="360" alt="Image" src="https://github.com/user-attachments/assets/2d4bf062-9b33-4a9b-b0f3-4460b6c401ce" />
 
 ---
 
@@ -148,9 +150,14 @@ ssh ripper@172.16.11.227
 # secret.php에서 획득한 비밀번호 사용
 ```
 
+<img width="595" height="216" alt="Image" src="https://github.com/user-attachments/assets/fd4f93fa-7219-426d-946e-74158e3d5826" />
+
 ```bash
 cat flag.txt
 ```
+
+
+<img width="532" height="92" alt="Image" src="https://github.com/user-attachments/assets/7675d718-b7d5-4238-aab7-02345d0f7c1b" />
 
 > 🎉 첫 번째 플래그 획득!
 
