@@ -1,5 +1,7 @@
 # 🏴 DC-2 — CTF Writeup
 
+<img width="433" height="533" alt="Image" src="https://github.com/user-attachments/assets/a778ffb6-452c-44dc-85fa-6f97788123dc" />
+
 > **Platform:** VulnHub | **URL:** https://www.vulnhub.com/entry/dc-2,311/
 > **Goal:** 플래그 전체 획득 + root 쉘
 > **핵심 기술:** CeWL, WPScan, WordPress, SSH, vi 쉘 탈출, PATH 복구
@@ -13,9 +15,14 @@ nmap -sn 172.16.11.0/24
 ```
 > 네트워크 대역에서 살아있는 호스트 탐색 → 타겟 IP 확인
 
+<img width="785" height="334" alt="Image" src="https://github.com/user-attachments/assets/6cee033e-500f-482f-a7fb-a84d4c5f046a" />
+
 ```bash
 nmap -sC -sV -Pn -p- 172.16.11.228
 ```
+
+<img width="798" height="408" alt="Image" src="https://github.com/user-attachments/assets/09a9284a-17e8-47bf-87fa-e7d83a4dcddd" />
+
 > `-sC` 기본 스크립트 / `-sV` 버전 탐지 / `-Pn` ping 생략 / `-p-` 전체 포트
 >
 > ⚠️ 스캔 결과에서 80번 포트가 `http://dc-2/`로 리다이렉트되는 문구 확인
@@ -35,6 +42,10 @@ sudo vi /etc/hosts
 ```
 
 > 브라우저/도구가 `dc-2` 도메인을 IP로 해석할 수 있게 로컬 DNS 역할 수행
+
+<img width="889" height="426" alt="Image" src="https://github.com/user-attachments/assets/bdf7f37d-df00-4504-88cd-693d783b2a2b" />
+
+<img width="1148" height="768" alt="Image" src="https://github.com/user-attachments/assets/a2b74b17-d3b2-4a50-bf40-3a35de7ad920" />
 
 ---
 
@@ -85,6 +96,9 @@ wpscan --url http://dc-2/ -U user.txt -P wordlist.txt --password-attack wp-login
 
 > → **jerry** 계정 크리덴셜 획득 성공
 
+<img width="927" height="795" alt="Image" src="https://github.com/user-attachments/assets/904a6410-d8c7-499c-800e-461958402035" />
+
+
 ---
 
 ## 🏁 6단계: WordPress 내부 — Flag 2 획득
@@ -132,6 +146,9 @@ vi 편집기 내부에서:
 > rbash가 외부 명령을 막아도 **vi 안에서 쉘을 실행하면 rbash를 우회** 가능
 > `:set shell=` 로 실행할 쉘 지정 → `:shell` 로 해당 쉘 실행
 
+<img width="864" height="89" alt="Image" src="https://github.com/user-attachments/assets/0a1bab4a-9b72-40e3-ae1f-ece43f5b037b" />
+
+
 ---
 
 ## 🛠️ 9단계: PATH 및 SHELL 복구
@@ -140,6 +157,8 @@ vi 편집기 내부에서:
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export SHELL=/bin/bash
 ```
+
+<img width="881" height="105" alt="Image" src="https://github.com/user-attachments/assets/93eaae0e-4e66-4f08-b8e4-a916802a73e2" />
 
 > **왜 이걸 쓰나?**
 >
@@ -150,6 +169,9 @@ export SHELL=/bin/bash
 > `SHELL` → 현재 쉘을 bash로 명시적 지정
 >
 > 이 두 줄로 **정상적인 bash 환경** 복원 완료
+
+> 최종 루트플래그까지
+<img width="887" height="958" alt="Image" src="https://github.com/user-attachments/assets/baf0c150-b6bd-4d50-a0d0-b499ba38e69e" />
 
 ---
 
