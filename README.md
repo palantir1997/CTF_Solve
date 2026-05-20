@@ -79,8 +79,10 @@ Privilege Escalation → find, /etc/passwd, log file analysis
 - **핵심 기술:** FTP 익명 로그인, PHP Type Juggling, LFI, MD5 해시 크랙, Sudo 경로 트래버설
 - **풀이:** [5_15_CTF_potato.md](./5_15_CTF_potato.md)
 
+---
+
 ### 04. DC-2
-- **풀이:** [5_20_CTF_dc-2.md](./5_20_CTF_dc-2.md)
+- **풀이:** [5_20_CTF_dc-2.md](./5_20_CTF_DC-2.md)
 ---
 
 ## 🔍 Google 검색 키워드 | SEO Keywords
