@@ -1,4 +1,4 @@
-# 💥 CTF thor
+# 💥 CTF Thor
 
 <img width="349" height="498" alt="Image" src="https://github.com/user-attachments/assets/999d0bf6-b983-4e41-a7c7-5d7ab5c60212" /> <br/>
 
