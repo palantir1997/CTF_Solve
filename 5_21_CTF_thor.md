@@ -116,7 +116,6 @@ cd /root
 
 <img width="923" height="827" alt="Image" src="https://github.com/user-attachments/assets/c352e713-0d86-4b2b-9571-e6c74c1a1fdc" />
 ls        # proof.txt 확인!
-```
 
 ```
 [ 계정 단계별 권한 상승 흐름 ]
