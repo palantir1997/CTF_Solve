@@ -20,9 +20,12 @@ nmap -sC -sV -Pn -p- 192.168.1.100 -oN scan.txt
 ### 🕷️ 2. 웹 디렉토리 열거 (Fuzzing)
 
 ```bash
-# gobuster 기본
+# gobuster 기본1
 gobuster dir -u http://target.com \
   -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+# gobuster 기본2
+gobuster dir -u http://172.16.11.229/ -w /usr/share/wordlists/dirb/common.txt
 
 # 확장자 포함
 gobuster dir -u http://target.com \
