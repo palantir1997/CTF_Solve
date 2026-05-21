@@ -118,4 +118,20 @@ cd /root
 ls        # proof.txt 확인!
 ```
 
+```
+[ 계정 단계별 권한 상승 흐름 ]
+
+1단계: 웹 취약점 (Shellshock) 공격
+     www-data (아무 권한 없는 웹서버 계정)
+      │
+      ▼
+2단계: 하드코딩된 키값 입력 (hammer.sh 실행)
+     thor (일반 사용자 계정 - sudoers 설정 미흡)
+      │
+      ▼
+3단계: Sudoers 허점 공략 (sudo service ../../bin/bash)
+     root (최고 관리자 권한 - 완전 장악 👑)
+```
+
+
 > 💡 `sudo service ../../bin/bash` 원리: `service`가 내부적으로 경로를 조합해 실행할 때 `../` 트래버설을 막지 않아서 `/bin/bash`를 root 권한으로 직접 실행시킬 수 있음.
