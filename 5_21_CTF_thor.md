@@ -1,10 +1,11 @@
-### thor
+# 💥 Ripper: 1 — CTF thor
 
 <img width="349" height="498" alt="Image" src="https://github.com/user-attachments/assets/999d0bf6-b983-4e41-a7c7-5d7ab5c60212" />
 
 <img width="378" height="165" alt="Image" src="https://github.com/user-attachments/assets/ab3b3225-7f79-499f-9ff3-a98c849d74ce" />
 
 <img width="929" height="778" alt="Image" src="https://github.com/user-attachments/assets/e70b7066-98f4-4af1-9f82-e561fc3cdd5d" />
+
 
 ---
 
