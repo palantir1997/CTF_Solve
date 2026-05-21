@@ -94,6 +94,9 @@ Please enter your Secret massage : # bash 입력 후 엔터
 
 <img width="838" height="738" alt="Image" src="https://github.com/user-attachments/assets/33527c49-13a5-4ec9-8d97-c7cea08e4dfb" />
 
+<img width="637" height="547" alt="스크린샷 2026-05-21 152438" src="https://github.com/user-attachments/assets/5df0b59c-e069-4142-b990-9e77a6c8b039" />
+
+
 ---
 
 #### 👑 Step 5. root 권한 상승
