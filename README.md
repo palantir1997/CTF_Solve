@@ -5,7 +5,7 @@
 **VulnHub | Boot2Root | Penetration Testing Walkthroughs**
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/palantir1997/CTF_Solve?color=red&style=flat-square)
-![Writeups](https://img.shields.io/badge/Writeups-2-brightgreen?style=flat-square)
+![Writeups](https://img.shields.io/badge/Writeups-6-brightgreen?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-VulnHub-blue?style=flat-square)
 ![Lang](https://img.shields.io/badge/Language-KR%20%7C%20EN-orange?style=flat-square)
 
