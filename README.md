@@ -55,42 +55,6 @@ Privilege Escalation → find, /etc/passwd, log file analysis
 
 ---
 
-## 📂 풀이 목록 상세 | Writeup Details
-
-### 🚀 01. Momentum: 1
-- **플랫폼:** VulnHub
-- **링크:** https://www.vulnhub.com/entry/momentum-1,685/
-- **핵심 기술:** 웹 열거, 권한 상승
-- **풀이:** [5_18_CTF_momentum1_writeup.md](./5_18_CTF_momentum1_writeup.md)
-
----
-
-### 🗡️ 02. Ripper: 1
-- **플랫폼:** VulnHub  
-- **링크:** https://www.vulnhub.com/entry/ripper-1,706/
-- **핵심 기술:** RIPS PHP 분석, Base64 디코딩, Webmin 로그 분석
-- **풀이:** [5_20_CTF_ripper.md](./5_20_CTF_ripper.md)
-
----
-
-### 🥔 03. Potato: 1
-- **플랫폼:** VulnHub
-- **링크:** https://www.vulnhub.com/entry/potato-1,529/
-- **핵심 기술:** FTP 익명 로그인, PHP Type Juggling, LFI, MD5 해시 크랙, Sudo 경로 트래버설
-- **풀이:** [5_15_CTF_potato.md](./5_15_CTF_potato.md)
-
----
-
-### 04. DC-2
-- **풀이:** [5_20_CTF_dc-2.md](./5_20_CTF_DC-2.md)
----
-
-## 🔍 Google 검색 키워드 | SEO Keywords
-
-`vulnhub writeup` `CTF walkthrough` `boot2root` `ripper vulnhub` `momentum vulnhub`  
-`privilege escalation` `RIPS PHP` `Webmin exploit` `CTF 풀이` `모의침투 실습`
-
----
 
 <div align="center">
 
