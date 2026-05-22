@@ -15,15 +15,6 @@
 
 ---
 
-## 📋 Writeup List
-
-| # | Machine | Platform | Difficulty | Key Skills | Writeup |
-|---|---------|----------|------------|------------|---------|
-| 01 | 🚀 **Momentum: 1** | VulnHub | ⭐ Easy | Web Enum, Privilege Escalation | [📄 보기](./5_18_CTF_momentum1_writeup.md) |
-| 02 | 🗡️ **Ripper: 1** | VulnHub | ⭐⭐ Medium | RIPS, Webmin, File Enumeration | [📄 보기](./5_20_CTF_ripper.md) |
-
----
-
 ## 🧰 주요 사용 기술 | Tech Stack
 
 ```
