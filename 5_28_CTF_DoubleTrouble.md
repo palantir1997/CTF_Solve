@@ -166,8 +166,8 @@ sudo -l
 
 > 결과를 통해 sudo로 실행 가능한 명령어를 확인합니다. (스크린샷 첨부 권장)
 
-<img width="897" height="680" alt="스크린샷 2026-05-28 134038" src="https://github.com/user-attachments/assets/b5dc84fb-39ba-4e3c-9088-2dbe4edec6e7" />
 <img width="890" height="683" alt="스크린샷 2026-05-28 134027" src="https://github.com/user-attachments/assets/70809a13-9ac1-4c1c-8f23-d67da360c1a5" />
+<img width="897" height="680" alt="스크린샷 2026-05-28 134038" src="https://github.com/user-attachments/assets/b5dc84fb-39ba-4e3c-9088-2dbe4edec6e7" />
 
 
 ---
